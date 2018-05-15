@@ -28,10 +28,16 @@ class PostsIndex extends Component {
     renderPosts = () => {
         return _.map(this.props.posts, (post, id) => {
             return (<li className={"list-group-item"} key={id}>
-                {post.title}
+                <Link to={`/posts/${post.id}`}> {post.title}</Link>
             </li>);
         });
     }
+
+    renderPost = (id) => {
+        this.props.history.push(`/posts/${id}`);
+    }
+
+
 }
 
 function mapStateToProps({posts}) {
